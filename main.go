@@ -33,6 +33,13 @@ func parse(regex string) *parseContext {
 	return ctx
 }
 
+func parseGroup(regex string, ctx *parseContext) {
+	ctx.position += 1
+	for regex[ctx.position] != ')' {
+		process(regex, ctx)
+		ctx.position += 1
+	}
+}
 func process(regex string, ctx *parseContext) {
 
 }
